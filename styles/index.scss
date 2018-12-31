@@ -1,0 +1,75 @@
+$backgroundColor: #f8f7f2;
+$titleColor: #251b19;
+$singleContainerDim: 1.25em;
+$borderColor: #BBB;
+
+body {
+    background: $backgroundColor;
+    font-family: 'Amatic SC', cursive;
+}
+
+.title {
+    text-align: center;
+    font-family: 'Pacifico', cursive;
+    margin: 0;
+}
+
+.content {
+    margin-top: 1em;
+}
+
+#yearContainer, #monthHeader {
+    display: flex;
+    justify-content: center;
+    margin-bottom: .25em;
+}
+
+.monthHeader {
+    width: $singleContainerDim;
+    height: $singleContainerDim;
+    font-size: 1rem;
+    padding: 1px 0 0 1px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.monthContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.dayContainer {
+    width: $singleContainerDim;
+    height: $singleContainerDim;
+    border: 1px solid $borderColor;
+    margin-right: -1px;
+    margin-bottom: -1px;
+}
+
+@media (min-width: 769px) {
+    .content {
+        display: flex;
+        justify-content: center;
+    }
+
+    #yearContainer, #monthHeader { flex-direction: column; }
+
+    .monthContainer {
+        flex-direction: row;        
+    }
+}
+
+@media (max-width: 768px) {
+    #yearContainer, #monthHeader {
+        flex-direction: row;
+    }
+
+    .monthContainer {
+        flex-direction: column;
+    }
+}
