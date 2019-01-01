@@ -1,30 +1,87 @@
 $backgroundColor: #f8f7f2;
-$titleColor: #251b19;
+$titleColor: #564D65;
 $singleContainerDim: 1.25em;
-$borderColor: #BBB;
+$borderColor: #dfe8ea;
 
 body {
     background: $backgroundColor;
     font-family: 'Amatic SC', cursive;
+    user-select: none;
 }
 
 .title {
     text-align: center;
     font-family: 'Pacifico', cursive;
     margin: 0;
+    color: $titleColor;
+    text-shadow: 1px 3px 1px $borderColor;
+}
+
+.social {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+
+    a img {
+        display: inline-block;
+        height: 1.5em; 
+    }
+}
+
+#guide {
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+    margin: 1em 0;
+
+    
+    &:hover {
+        cursor: pointer;
+    }
+
+    #selectedMood span {
+        width: 1em;
+        height: 1em;
+        display: inline-block;
+        vertical-align: middle;
+    }
+}
+#moods, {
+    display: flex;
+    div {
+        position: relative;
+        margin: 0 1em;
+        padding-left: 1.25em;
+
+        span {
+            position: absolute;
+            left: 0;
+            top: .25em;
+            width: 1em;
+            height: 1em;
+        }
+    }
+    
 }
 
 .content {
-    margin-top: 1em;
+    display: inline-flex;
+    flex-direction: column;
 }
 
-#yearContainer, #monthHeader {
+#yearContainer, #monthHeader, #daysHeader, #tableContainer {
     display: flex;
     justify-content: center;
     margin-bottom: .25em;
 }
 
-.monthHeader {
+#daysHeader {
+    margin-left: 1.25em;
+    margin-bottom: 0;
+    margin-top: 1em;
+}
+
+.monthHeader, .dayHeader {
     width: $singleContainerDim;
     height: $singleContainerDim;
     font-size: 1rem;
@@ -57,19 +114,30 @@ body {
         justify-content: center;
     }
 
-    #yearContainer, #monthHeader { flex-direction: column; }
+    #yearContainer { flex-direction: column; }
 
-    .monthContainer {
+    // .monthContainer, 
+    #monthHeader {
+        flex-direction: column;        
+    }
+    .dayHeader, #daysHeader, .monthContainer {
         flex-direction: row;        
     }
 }
 
 @media (max-width: 768px) {
+    .content {
+        display: inline-flex;
+        flex-direction: row;
+        justify-content: center;
+        width: 100%;
+    }
+
     #yearContainer, #monthHeader {
         flex-direction: row;
     }
 
-    .monthContainer {
+    .dayHeader, #daysHeader, #tableContainer {
         flex-direction: column;
     }
 }
